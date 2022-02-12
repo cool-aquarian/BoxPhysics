@@ -20,11 +20,11 @@ public class GameManager : MonoBehaviour
         float zVelocity = Mathf.Sqrt(initialVelocity - xzRatio);
         float xVelocity = Mathf.Sqrt(xzRatio);
 
-        Debug.Log("x="+ x + ", z=" + z + " xV=" + xVelocity + " zV=" + zVelocity + " velocity=" + Mathf.Sqrt(xVelocity*xVelocity + zVelocity*zVelocity));
-
         Vector3 direction = new Vector3(xVelocity*x, 0f, zVelocity*z);
         //ball.velocity += ballInitForce;
         ball.velocity+=direction;
+
+        Debug.Log("x="+ x + ", z=" + z + " xV=" + xVelocity + " zV=" + zVelocity + " velocity=" + getBallSpeed());
     }
 
     // Update is called once per frame
@@ -33,6 +33,16 @@ public class GameManager : MonoBehaviour
         //Relaunch on pressing 'R'
         if(Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else if(Input.GetKeyDown(KeyCode.V)) {
+            logBallSpeed();
         }
+    }
+
+    public void logBallSpeed() {
+        Debug.Log("Ball speed is: " + getBallSpeed() + " at " + System.DateTime.Now);
+    }
+
+    public float getBallSpeed() {
+        return Mathf.Sqrt(Mathf.Pow(ball.velocity.x, 2) + Mathf.Pow(ball.velocity.z, 2));
     }
 }

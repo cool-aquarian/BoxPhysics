@@ -36,8 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/Main.cs" />
+     <Compile Include="Assets/Scripts/GameManager.cs" />
+     <Compile Include="Assets/Scripts/Ball.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/opt/unityeditor/2020.3.28f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

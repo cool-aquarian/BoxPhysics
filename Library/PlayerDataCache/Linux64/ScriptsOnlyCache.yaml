@@ -1,7 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Ball
     - GameManager
+    - Paddle
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -40,6 +42,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -51,13 +57,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2006}
     - Class: 114
-      Script: {instanceID: 2294}
+      Script: {instanceID: 2226}
     - Class: 114
-      Script: {instanceID: 2406}
+      Script: {instanceID: 2296}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2408}
     - Class: 114
-      Script: {instanceID: 2754}
+      Script: {instanceID: 2574}
+    - Class: 114
+      Script: {instanceID: 2756}
+    - Class: 114
+      Script: {instanceID: 19738}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -153,7 +163,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: c58c10ca58b4c6d8f310450fd50b5448
+      Hash: 242f2c2f0b9b0ac10d7fc1f59dae91fb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -187,6 +197,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 3d76721626b6060fa3c53718689a864a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Ball
   - hash:
       serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
@@ -511,6 +527,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: d97868b628fc8d7bb43f2deae2a89817
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Paddle
   platform: 24
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

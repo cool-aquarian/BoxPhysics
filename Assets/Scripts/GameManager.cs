@@ -9,9 +9,15 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public Rigidbody ball;
+    public GameObject paddle1;
+    public GameObject paddle2;
+    public GameObject paddle3;
+    public GameObject paddle4;
     //public Vector3 ballInitForce;
 
     public int initialVelocity;
+    public float speedMultiplier;
+    public int multiplierRallyCount;
     public int gameWinScore;
 
     public Text p1ScoreText;
@@ -23,6 +29,7 @@ public class GameManager : MonoBehaviour
     public Text WinningMessageText;
     public Text ContinueQuitText;
 
+    private int rallyCount = 0;
     private int p1Score = 0;
     private int p2Score = 0;
     private int p3Score = 0;
@@ -69,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
 
         ball.velocity = new Vector3(0, 0, 0);
+        rallyCount = 0;
 
         if (isStart)
         {
@@ -78,7 +86,7 @@ public class GameManager : MonoBehaviour
 
             ContinueQuitText.gameObject.SetActive(true);
             ControlsText.gameObject.SetActive(true);
-
+            isSpacePressed = false;
             yield return new WaitUntil(() => isSpacePressed == true);
             isSpacePressed = false;
             WinningMessageText.text = "";
@@ -92,6 +100,7 @@ public class GameManager : MonoBehaviour
         }
 
         refreshScorecard();
+        ResetPaddles();
         ball.position = new Vector3(0, 3.5f, 0);
         int x = Random.Range(0, 2) == 0 ? -1 : 1;
         int z = Random.Range(0, 2) == 0 ? -1 : 1;
@@ -109,7 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void logBallSpeed()
     {
-        Debug.Log("Ball speed is: " + getBallSpeed() + " at " + DateTime.Now + "ControlsText.text=" + ControlsText.text);
+        Debug.Log("Ball speed is: " + getBallSpeed() + " at " + DateTime.Now);
     }
 
     public float getBallSpeed()
@@ -310,5 +319,30 @@ public class GameManager : MonoBehaviour
             p3ScoreText.text = "Blue: " + blueScore;
             p4ScoreText.text = "Red: " + redScore;
         }
+    }
+
+    public void ResetPaddles()
+    {
+        paddle1.GetComponent<Paddle>().ResetPaddle();
+        paddle2.GetComponent<Paddle>().ResetPaddle();
+        paddle3.GetComponent<Paddle>().ResetPaddle();
+        paddle4.GetComponent<Paddle>().ResetPaddle();
+    }
+
+    public void increaseRallyAndSpeedIfNeeded() {
+        rallyCount++;
+
+        if(rallyCount % multiplierRallyCount == 0) {
+            increaseBallSpeed();
+        }
+    }
+
+    public void increaseBallSpeed() {
+        //float ball_speed = getBallSpeed();
+        //float fractionIncrease = 1.0f + speedMultiplier/ball_speed;
+        //ball.velocity = new Vector3(ball.velocity.x * fractionIncrease, 0, ball.velocity.z * fractionIncrease);
+
+
+        ball.velocity = new Vector3(ball.velocity.x * speedMultiplier, 0, ball.velocity.z * speedMultiplier);
     }
 }

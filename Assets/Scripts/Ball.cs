@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
 
     private GameManager gameManager;
 
+    public AudioSource audioSource;
+    public AudioClip ballPaddle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,57 +28,76 @@ public class Ball : MonoBehaviour
         String collisionObjName = collision.gameObject.name;
         String collisionObjTag = collision.gameObject.tag;
 
-        switch(collisionObjTag) {
+        switch (collisionObjTag)
+        {
             case "GameWall":
+                audioSource.Play();
                 Debug.Log("Collision Happened with Wall at: " + DateTime.Now);
-                switch(collisionObjName) {
+                switch (collisionObjName)
+                {
                     case "LeftBar":
-                    if(gameManager.is4PModeGame()) {
-                        gameManager.p1ScoredAgainst();
-                    } else {
-                        gameManager.p2Scored();
-                    }
-                    break;
+                        if (gameManager.is4PModeGame())
+                        {
+                            gameManager.p1ScoredAgainst();
+                        }
+                        else
+                        {
+                            gameManager.p2Scored();
+                        }
+                        break;
                     case "RightBar":
-                    if(gameManager.is4PModeGame()) {
-                        gameManager.p3ScoredAgainst();
-                    } else {
-                        gameManager.p2Scored();
-                    }
-                    break;
+                        if (gameManager.is4PModeGame())
+                        {
+                            gameManager.p3ScoredAgainst();
+                        }
+                        else
+                        {
+                            gameManager.p2Scored();
+                        }
+                        break;
                     case "TopBar":
-                    if(gameManager.is4PModeGame()) {
-                        gameManager.p2ScoredAgainst();
-                    } else {
-                        gameManager.p1Scored();
-                    }
-                    break;
+                        if (gameManager.is4PModeGame())
+                        {
+                            gameManager.p2ScoredAgainst();
+                        }
+                        else
+                        {
+                            gameManager.p1Scored();
+                        }
+                        break;
                     case "BottomBar":
-                    if(gameManager.is4PModeGame()) {
-                        gameManager.p4ScoredAgainst();
-                    } else {
-                        gameManager.p1Scored();
-                    }
-                    break;
+                        if (gameManager.is4PModeGame())
+                        {
+                            gameManager.p4ScoredAgainst();
+                        }
+                        else
+                        {
+                            gameManager.p1Scored();
+                        }
+                        break;
 
                 }
                 //gameManager.refreshScorecard();
                 //StartCoroutine(gameManager.Launch(false));
-            break;
+                break;
             case "GamePaddle":
+                audioSource.PlayOneShot(ballPaddle);
                 Debug.Log("Collision Happened with Paddle at: " + DateTime.Now);
-                switch(collisionObjName) {
+                switch (collisionObjName)
+                {
                     case "P1Paddle":
-                    break;
+                        break;
                     case "P3Paddle":
-                    break;
+                        break;
                     case "P2Paddle":
-                    break;
+                        break;
                     case "P4Paddle":
-                    break;
-                    
+                        break;
+
                 }
-            break;
+
+                gameManager.increaseRallyAndSpeedIfNeeded();
+                break;
         }
-    }  
+    }
 }

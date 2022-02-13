@@ -39,6 +39,7 @@
      <Compile Include="Assets/Scripts/Main.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/Ball.cs" />
+     <Compile Include="Assets/Scripts/Paddle.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/opt/unityeditor/2020.3.28f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

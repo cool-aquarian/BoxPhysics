@@ -270,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77fb2481a0ab9be938e18ccd2bd43ef3, type: 2}
+  - {fileID: 2100000, guid: 9d5df6b9b622329598bf13b53b3b2d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -366,7 +366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226534618
@@ -476,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 864f2284e6df5bd24b035f565cfa1a06, type: 2}
+  - {fileID: 2100000, guid: 273ccef295bcde92584ba6720d6237fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Controls:
+  m_Text: 'Controls (Blue):
 
     For Top Paddle: A, D
 
@@ -840,7 +840,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 273ccef295bcde92584ba6720d6237fc, type: 2}
+  - {fileID: 2100000, guid: 864f2284e6df5bd24b035f565cfa1a06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -938,7 +938,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9d5df6b9b622329598bf13b53b3b2d53, type: 2}
+  - {fileID: 2100000, guid: 77fb2481a0ab9be938e18ccd2bd43ef3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1241,7 +1241,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 864f2284e6df5bd24b035f565cfa1a06, type: 2}
+  - {fileID: 2100000, guid: 273ccef295bcde92584ba6720d6237fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1625,7 +1625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: -100, y: -200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149075682
@@ -1655,13 +1655,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press Space to play, Q to quit.
+  m_Text: "Score 5 points to win.\n\nPress:\n\u27A1 1 to play on Easy,\n\u27A1 2
+    to play on Medium,\n\u27A1 3 to play on Hard,\n\u27A1 Q to quit at any time."
 --- !u!222 &1149075683
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1769,7 +1770,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77fb2481a0ab9be938e18ccd2bd43ef3, type: 2}
+  - {fileID: 2100000, guid: 9d5df6b9b622329598bf13b53b3b2d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1899,7 +1900,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9d5df6b9b622329598bf13b53b3b2d53, type: 2}
+  - {fileID: 2100000, guid: 77fb2481a0ab9be938e18ccd2bd43ef3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2174,7 +2175,7 @@ MonoBehaviour:
   initialVelocity: 900
   speedMultiplier: 1.25
   multiplierRallyCount: 3
-  gameWinScore: 7
+  gameWinScore: 5
   p1ScoreText: {fileID: 1060693452}
   p2ScoreText: {fileID: 533104978}
   p3ScoreText: {fileID: 1963726086}
@@ -2282,7 +2283,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 273ccef295bcde92584ba6720d6237fc, type: 2}
+  - {fileID: 2100000, guid: 864f2284e6df5bd24b035f565cfa1a06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

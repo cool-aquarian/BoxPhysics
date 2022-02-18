@@ -66,8 +66,19 @@ public class GameManager : MonoBehaviour
         {
             logBallSpeed();
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            setGameDifficulty(1);
+            isSpacePressed = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            setGameDifficulty(2);
+            isSpacePressed = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            setGameDifficulty(3);
             isSpacePressed = true;
         }
     }
@@ -113,7 +124,7 @@ public class GameManager : MonoBehaviour
         //ball.velocity += ballInitForce;
         ball.velocity += direction;
 
-        Debug.Log("x=" + x + ", z=" + z + " xV=" + xVelocity + " xzRatio=" + xzRatio + " zV=" + zVelocity + " velocity=" + getBallSpeed());
+        //Debug.Log("x=" + x + ", z=" + z + " xV=" + xVelocity + " xzRatio=" + xzRatio + " zV=" + zVelocity + " velocity=" + getBallSpeed());
     }
 
     public void logBallSpeed()
@@ -139,7 +150,7 @@ public class GameManager : MonoBehaviour
         p1Score++;
         if (p1Score + p3Score >= gameWinScore)
         {
-            WinningMessageText.text = "Blue Won";
+            WinningMessageText.text = "Computer Won";//"Blue Won";
             StartCoroutine(Launch(true));
         }
         else
@@ -153,7 +164,7 @@ public class GameManager : MonoBehaviour
         p2Score++;
         if (p2Score + p4Score >= gameWinScore)
         {
-            WinningMessageText.text = "Red Won";
+            WinningMessageText.text = "You Won";//"Red Won";
             StartCoroutine(Launch(true));
         }
         else
@@ -167,7 +178,7 @@ public class GameManager : MonoBehaviour
         p3Score++;
         if (p1Score + p3Score >= gameWinScore)
         {
-            WinningMessageText.text = "Blue Won";
+            WinningMessageText.text = "Computer Won";//"Blue Won";
             StartCoroutine(Launch(true));
         }
         else
@@ -181,7 +192,7 @@ public class GameManager : MonoBehaviour
         p4Score++;
         if (p2Score + p4Score >= gameWinScore)
         {
-            WinningMessageText.text = "Red Won";
+            WinningMessageText.text = "You Won";//"Red Won";
             StartCoroutine(Launch(true));
         }
         else
@@ -241,7 +252,7 @@ public class GameManager : MonoBehaviour
         }
         if (anyoneWon)
         {
-            StartCoroutine(Launch(false));
+            StartCoroutine(Launch(true));
         }
     }
 
@@ -268,7 +279,7 @@ public class GameManager : MonoBehaviour
         }
         if (anyoneWon)
         {
-            StartCoroutine(Launch(false));
+            StartCoroutine(Launch(true));
         }
 
     }
@@ -296,7 +307,7 @@ public class GameManager : MonoBehaviour
         }
         if (anyoneWon)
         {
-            StartCoroutine(Launch(false));
+            StartCoroutine(Launch(true));
         }
     }
 
@@ -311,13 +322,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            int blueScore = p1Score + p3Score;
-            int redScore = p2Score + p4Score;
+            int redScore = p1Score + p3Score;
+            int blueScore = p2Score + p4Score;
 
-            p1ScoreText.text = "Blue: " + blueScore;
-            p2ScoreText.text = "Red: " + redScore;
-            p3ScoreText.text = "Blue: " + blueScore;
-            p4ScoreText.text = "Red: " + redScore;
+            p1ScoreText.text = "Red: " + redScore;
+            p2ScoreText.text = "Blue: " + blueScore;
+            p3ScoreText.text = "Red: " + redScore;
+            p4ScoreText.text = "Blue: " + blueScore;
         }
     }
 
@@ -329,15 +340,23 @@ public class GameManager : MonoBehaviour
         paddle4.GetComponent<Paddle>().ResetPaddle();
     }
 
-    public void increaseRallyAndSpeedIfNeeded() {
+    public void StopBallAndReset() {
+        ball.velocity = new Vector3(0, 0, 0);
+        ball.position = new Vector3(0, 0, 0 );
+    }
+
+    public void increaseRallyAndSpeedIfNeeded()
+    {
         rallyCount++;
 
-        if(rallyCount % multiplierRallyCount == 0) {
+        if (rallyCount % multiplierRallyCount == 0)
+        {
             increaseBallSpeed();
         }
     }
 
-    public void increaseBallSpeed() {
+    public void increaseBallSpeed()
+    {
         //float ball_speed = getBallSpeed();
         //float fractionIncrease = 1.0f + speedMultiplier/ball_speed;
         //ball.velocity = new Vector3(ball.velocity.x * fractionIncrease, 0, ball.velocity.z * fractionIncrease);
@@ -345,4 +364,13 @@ public class GameManager : MonoBehaviour
 
         ball.velocity = new Vector3(ball.velocity.x * speedMultiplier, 0, ball.velocity.z * speedMultiplier);
     }
+
+    public void setGameDifficulty(int difficulty)
+    {
+        paddle1.GetComponent<Paddle>().setAIPaddleSpeed(0.5f * difficulty);
+        initialVelocity = 200 + difficulty * 800;  //800, 1400, 2000
+
+        Debug.Log("Set AI Paddle Speed to: " + (0.5f * difficulty) + "f, initialVelocity=" + initialVelocity);
+    }
+
 }

@@ -31,6 +31,7 @@ public class Ball : MonoBehaviour
         switch (collisionObjTag)
         {
             case "GameWall":
+                gameManager.StopBallAndReset();
                 audioSource.Play();
                 Debug.Log("Collision Happened with Wall at: " + DateTime.Now);
                 switch (collisionObjName)

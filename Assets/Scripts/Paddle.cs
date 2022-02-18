@@ -17,7 +17,7 @@ public class Paddle : MonoBehaviour
     private static readonly float paddle_half_size = 6.5f;
     private static readonly float paddle_half_plus_buffer_size = 20f;
     private static readonly float paddle_max_location = arena_size - paddle_half_plus_buffer_size;
-    private static readonly float ai_speed = 0.75f;
+    private static float ai_speed = 0.75f;  //0.5f = Easy, 0.75f = Medium, 1.00f = Hard
 
     // Start is called before the first frame update
     void Start()
@@ -100,5 +100,9 @@ public class Paddle : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         transform.position = startPosition;
+    }
+
+    public void setAIPaddleSpeed(float l_ai_speed) {
+        ai_speed = l_ai_speed;
     }
 }
